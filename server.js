@@ -11,6 +11,10 @@ const products = new Contenedor('./src/data/productos.txt');
 const app = require('express')();
 const PORT = process.env.PORT || 8080;
 
+app.get('/', (req, res) => { 
+ res.send('<h1>Wellcome to the Saul Space</h1><h3>We have 2 end-points</h3><h4>/products</h4><h4>/randomProduct</h4>');
+});
+
 app.get('/products', async (req, res) => {
     try {
         res.status(200).send(await products.getAll());
